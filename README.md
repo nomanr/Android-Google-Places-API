@@ -5,7 +5,7 @@ This project allows you get places in a given radius and other Places API parame
 
 
 
-![Example Image][1]
+[IMG]http://i67.tinypic.com/imj6vc.png[/IMG]
 
 Sample
 ------------
@@ -84,6 +84,5 @@ License
 
 
 
-[1]:http://i67.tinypic.com/imj6vc.jpg
 
 
