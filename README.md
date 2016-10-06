@@ -49,8 +49,10 @@ To get places within a radius, pass the central point , API key and just execute
                 .build()
                 .execute();
         
+```
+Callbacks
 
-
+``` java
 
     void onPlacesFailure(PlacesException e);
 
