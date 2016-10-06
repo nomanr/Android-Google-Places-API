@@ -1,6 +1,9 @@
 Android-Google-Places-API
 =========================
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Google--Places--API-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4463)
+
+
 This project allows you get places in a given radius and other Places API parameter using Google Places API. 
 
 
