@@ -4,8 +4,7 @@ Android-Google-Places-API
 This project allows you get places in a given radius and other Places API parameter using Google Places API. 
 
 
-
-[IMG]http://i67.tinypic.com/imj6vc.png[/IMG]
+<img src="http://i67.tinypic.com/imj6vc.png" width="200">
 
 Sample
 ------------
