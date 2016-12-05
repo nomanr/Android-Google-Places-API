@@ -50,10 +50,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         new NRPlaces.Builder()
                 .listener(this)
-                .key("KEY")
+                .key("AIzaSyCgequLZqGAXtMPxyPo_SC6tK6PtPIULow")
                 .latlng(33.721328, 73.057838)
-                .radius(500)
-                .type(PlaceType.GYM)
+                .radius(1500)
+                .type(PlaceType.CAR_DEALER)
                 .build()
                 .execute();
     }

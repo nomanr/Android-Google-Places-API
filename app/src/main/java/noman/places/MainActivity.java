@@ -8,6 +8,7 @@ import java.util.List;
 
 import noman.googleplaces.NRPlaces;
 import noman.googleplaces.Place;
+import noman.googleplaces.PlaceType;
 import noman.googleplaces.PlacesException;
 import noman.googleplaces.PlacesListener;
 
@@ -20,9 +21,10 @@ public class MainActivity extends AppCompatActivity implements PlacesListener {
 
         new NRPlaces.Builder()
                 .listener(this)
-                .key("AIzaSyAF8QXex5dgm0UIjBTZLd-e6EgjYUHnuw0")
+                .key("KEY")
                 .latlng(33.728505, 73.082579)
                 .radius(2000)
+                .type(PlaceType.CAR_DEALER)
                 .build()
                 .execute();
 

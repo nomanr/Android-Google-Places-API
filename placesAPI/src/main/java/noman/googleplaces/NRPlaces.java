@@ -1,8 +1,5 @@
 package noman.googleplaces;
 
-import android.util.Log;
-
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Locale;
 
@@ -273,10 +270,10 @@ public class NRPlaces extends AbstractPlaces {
         if (type != null) {
             Class<?> someClass = PlaceType.class;
             try {
-                Field someField = someClass.getField(type.toUpperCase());
+                someClass.getField(type.toUpperCase());
                 builder.append("&").append(PARAM_TYPE).append(type);
 
-            } catch (NoSuchFieldException e) {
+            } catch (Exception e) {
 
                 throw new IllegalArgumentException(
                         "'" + type + "' is invalid. All types are given in PlaceType class");
@@ -286,7 +283,6 @@ public class NRPlaces extends AbstractPlaces {
             builder.append("&").append(PARAM_PAGETOKEN).append(nexPageToken);
 
         }
-        Log.e("NOMAN", builder.toString());
         return builder.toString();
     }
 

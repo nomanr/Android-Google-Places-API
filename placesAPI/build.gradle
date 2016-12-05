@@ -15,7 +15,7 @@ android {
 
 }
 group = 'noman.placesapi'
-version = '1.0.0'
+version = '1.1.2'
 
 task generateSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -42,15 +42,15 @@ bintray {
         name = 'placesapi'
 
         version {
-            name = '1.0.1'
+            name = '1.1.2'
             desc = 'GooglePlacesAPI'
             released  = new Date()
-            vcsTag = '1.0.1'
+            vcsTag = '1.1.2'
         }
 
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/nomanr/Google-Places-Android.git'
-        websiteUrl = 'https://github.com/nomanr/Google-Places-Android'
+        vcsUrl = 'https://github.com/nomanr/Android-Google-Places-API'
+        websiteUrl = 'https://github.com/nomanr/Android-Google-Places-API'
     }
     configurations = ['archives']
 }
