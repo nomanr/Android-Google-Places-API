@@ -28,7 +28,7 @@ Grab via Maven:
 ```
 or Gradle:
 ```groovy
-    compile 'noman.placesapi:placesAPI:1.1.2'
+    compile 'noman.placesapi:placesAPI:1.1.3'
 ```
 
 Usage
