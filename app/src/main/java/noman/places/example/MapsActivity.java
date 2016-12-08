@@ -16,7 +16,6 @@ import java.util.List;
 
 import noman.googleplaces.NRPlaces;
 import noman.googleplaces.Place;
-import noman.googleplaces.PlaceType;
 import noman.googleplaces.PlacesException;
 import noman.googleplaces.PlacesListener;
 import noman.places.R;
@@ -50,10 +49,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         new NRPlaces.Builder()
                 .listener(this)
-                .key("AIzaSyCgequLZqGAXtMPxyPo_SC6tK6PtPIULow")
+                .key("KEY")
                 .latlng(33.721328, 73.057838)
                 .radius(1500)
-                .type(PlaceType.CAR_DEALER)
                 .build()
                 .execute();
     }

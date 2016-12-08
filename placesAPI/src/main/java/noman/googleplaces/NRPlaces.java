@@ -1,5 +1,7 @@
 package noman.googleplaces;
 
+import android.util.Log;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -69,9 +71,13 @@ public class NRPlaces extends AbstractPlaces {
      */
     private String type;
     /**
-     * he language code, indicating in which language the results should be returned,
+     * the language code, indicating in which language the results should be returned,
      */
     private String language;
+    /**
+     * Country code e.g. US
+     */
+    private String countryCode;
     private PlacesListener listener;
 
     private NRPlaces(Builder builder) {
@@ -92,6 +98,15 @@ public class NRPlaces extends AbstractPlaces {
         setType(builder.type);
         setListener(builder.listener);
         setLanguage(builder.language);
+        setCountryCode(builder.countryCode);
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     public String getLanguage() {
@@ -200,6 +215,7 @@ public class NRPlaces extends AbstractPlaces {
         builder.append(PARAM_KEY).append(key);
         if (nexPageToken != null) {
             builder.append("&").append(PARAM_PAGETOKEN).append(nexPageToken);
+            Log.e("Places", builder.toString());
             return builder.toString();
 
         }
@@ -234,8 +250,15 @@ public class NRPlaces extends AbstractPlaces {
         if (language != null) {
             Locale locale = new Locale(language);
             if (locale.getISO3Language() == null || locale.getISO3Country().isEmpty()) {
-                throw new IllegalArgumentException(
-                        "Invalid language code");
+                if (countryCode != null) {
+                    locale = new Locale(language, countryCode);
+                } else {
+                    locale = new Locale(language, language);
+                }
+                if (locale.getISO3Language() == null || locale.getISO3Country().isEmpty()) {
+                    throw new IllegalArgumentException(
+                            "Invalid language code");
+                }
             }
             builder.append("&").append(PARAM_LANGUAGE).append(language);
         }
@@ -279,10 +302,8 @@ public class NRPlaces extends AbstractPlaces {
                         "'" + type + "' is invalid. All types are given in PlaceType class");
             }
         }
-        if (nexPageToken != null) {
-            builder.append("&").append(PARAM_PAGETOKEN).append(nexPageToken);
 
-        }
+        Log.e("Places", builder.toString());
         return builder.toString();
     }
 
@@ -300,9 +321,11 @@ public class NRPlaces extends AbstractPlaces {
         private String type;
         private PlacesListener listener;
         private String language;
+        private String countryCode;
 
         public Builder() {
         }
+
 
         public Builder key(String val) {
             key = val;
@@ -365,6 +388,18 @@ public class NRPlaces extends AbstractPlaces {
 
         public Builder language(String val) {
             language = val;
+            return this;
+        }
+
+        /**
+         * For example Locale is English, US (en_US)
+         *
+         * @param language    will be en
+         * @param countryCode will be US
+         */
+        public Builder language(String language, String countryCode) {
+            this.language = language;
+            this.countryCode = countryCode;
             return this;
         }
 
