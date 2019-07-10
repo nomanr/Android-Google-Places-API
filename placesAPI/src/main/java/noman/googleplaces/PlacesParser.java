@@ -27,6 +27,8 @@ public class PlacesParser extends Parser {
     private static final String TYPES = "types";
     private static final String VICINITY = "vicinity";
     private static final String LOCATION = "location";
+    private static final String RATING = "rating";
+    private static final String USER_RATINGS_TOTAL = "user_ratings_total";
     private static final String LAT = "lat";
     private static final String LNG = "lng";
     private static final String STATUS = "status";
@@ -97,6 +99,27 @@ public class PlacesParser extends Parser {
 
         //get vicinity
         place.setVicinity(jsonPlace.getString(VICINITY));
+        
+         // get rating
+        try
+        {
+            Double data = jsonPlace.getDouble(RATING);
+            place.setRating(jsonPlace.getDouble(RATING));
+        }catch (JSONException e)
+        {
+            place.setRating(0.0);
+        }
+
+
+        // get user_ratings_total
+        try
+        {
+            int total_data = jsonPlace.getInt(USER_RATINGS_TOTAL);
+            place.setUser_ratings_total(total_data);
+        }catch (JSONException e)
+        {
+            place.setUser_ratings_total(0);
+        }
 
         return place;
     }
