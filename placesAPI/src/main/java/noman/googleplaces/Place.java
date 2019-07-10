@@ -32,6 +32,14 @@ public class Place {
      * near area of place
      */
     private String vicinity;
+    /**
+     * rating of Restaurant
+     */
+    private Double rating;
+    /**
+     * Number of people who gave rating
+     */
+    private int user_ratings_total;
 
     public Place() {
     }
@@ -43,6 +51,8 @@ public class Place {
         setPlaceId(builder.placeId);
         setTypes(builder.types);
         setVicinity(builder.vicinity);
+        setRating(builder.rating);
+        setUser_ratings_total(builder.user_ratings_total);
     }
 
     @Override
@@ -54,6 +64,8 @@ public class Place {
                 ", placeId='" + placeId + '\'' +
                 ", types=" + Arrays.toString(types) +
                 ", vicinity='" + vicinity + '\'' +
+                ", rating=" + rating + '\'' +
+                ", user_ratings_total=" + user_ratings_total + '\'' +
                 '}';
     }
 
@@ -166,6 +178,33 @@ public class Place {
     public void setVicinity(String vicinity) {
         this.vicinity = vicinity;
     }
+    /**
+     * returns rating of restaurant
+     *
+     * @return Double type
+     */
+    public Double getRating(){return rating;}
+
+    /**
+     * set rating
+     *
+     * @param rating
+     */
+    public void setRating(Double rating) { this.rating = rating;}
+
+    /**
+     * returns Number of people who gave rating
+     *
+     * @return int type
+     */
+    public int getUser_ratings_total(){ return user_ratings_total;}
+    /**
+     * set rating
+     *
+     * @param user_ratings_total
+     */
+    public void setUser_ratings_total(int user_ratings_total) { this.user_ratings_total = user_ratings_total;}
+
 
     public double getLatitude(){
         return location.getLatitude();
@@ -181,6 +220,8 @@ public class Place {
         private String placeId;
         private String[] types;
         private String vicinity;
+        private Double rating;
+        private int user_ratings_total;
 
         public Builder() {
         }
@@ -212,6 +253,18 @@ public class Place {
 
         public Builder vicinity(String val) {
             vicinity = val;
+            return this;
+        }
+        
+        public Builder rating(Double val)
+        {
+            rating = val;
+            return this;
+        }
+
+        public Builder user_ratings_total(int val)
+        {
+            user_ratings_total = val;
             return this;
         }
 
